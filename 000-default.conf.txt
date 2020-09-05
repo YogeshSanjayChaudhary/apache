@@ -1,0 +1,40 @@
+Sample-1:
+
+<VirtualHost *:80>   
+  ServerAdmin admin@example.com
+     DocumentRoot /var/www/html/eduisfun/backend/public
+     ServerName staging-backend.eduisfun.in
+
+     <Directory /var/www/html/eduisfun/backend/public>
+        Options +FollowSymlinks
+        AllowOverride All
+        Require all granted
+        Allow from all
+        Header set Access-Control-Allow-Origin "*"
+     </Directory>
+
+     ErrorLog ${APACHE_LOG_DIR}/error.log
+     CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
+
+
+Sample-2:
+
+<VirtualHost *:80>
+  ServerAdmin admin@example.com
+     DocumentRoot /var/www/html/payment/public
+     ServerName payments.stepapp.in
+
+     <Directory /var/www/html/payment/public>
+        Options +FollowSymlinks
+        AllowOverride All
+        Require all granted
+        Allow from all
+        Header set Access-Control-Allow-Origin "https://stepapp.ai"
+	ServerSignature Off
+        Header always append X-Frame-Options SAMEORIGIN
+     </Directory>
+
+     ErrorLog ${APACHE_LOG_DIR}/error.log
+     CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
