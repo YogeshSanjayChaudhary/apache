@@ -1,0 +1,16 @@
+Apache as Reverse Proxy for Nodejs and ExpressJS
+
+Install Apache on RHEL/CENTOS/AMAZON LINUX 
+Go to /etc/httpd/conf.d/
+create example.com.conf
+Paste the below code for virtual host
+
+<VirtualHost *:80>
+ ServerName example.com
+
+ ProxyRequests On
+ ProxyPass / http://localhost:3000
+ ProxyPassReverse / http://localhost:3000
+</VirtualHost>
+
+Restart Apache
