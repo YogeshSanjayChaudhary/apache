@@ -1,3 +1,13 @@
+Basic:
+
+<VirtualHost *:80>
+       ServerName "video.stepapp.in"
+       DocumentRoot /var/www/html/college/
+       <Directory /var/www/html/college>
+              AllowOverride All
+       </Directory>
+</VirtualHost>
+
 Sample-1:
 
 <VirtualHost *:80>   
